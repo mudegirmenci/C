@@ -1,0 +1,30 @@
+Recursion
+
+fact(1)=1
+fact(2)=2*1   	     or 2*fact(1)
+fact(3)=3*2*1   	 or 3*fact(2)
+fact(4)=4*3*2*1   	 or 4*fact(3)
+fact(5)=5*4*3*2*1    or 5*fact(4)
+
+o halde
+
+fact(n)=n*fact(n-1
+
+
+int fact(int n)
+{
+	//base case
+	
+	//recursive case
+}
+
+base case:
+
+if(n==1)
+{
+	return 1;
+}
+
+recursive case:
+
+return n*fact(n-2)

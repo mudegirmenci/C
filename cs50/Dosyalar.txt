@@ -1,0 +1,75 @@
+FILE Pointers
+
+-dosya fonksiyonları stdio.h  bulunur.
+-toplam 6 fonksiyonumuz vardır.
+
+1.fopen ()
+ 
+ FILE* ptr=fopen(<filename>,<operation>);
+ 
+ FILE* ptr1=fopen("file1.txt","r");
+	r:read     okuma modunda açar
+	w:write    yazma modunda açar ve dosyayı tamamen boşaltıp yazmaya hazır hale getirir.
+	a:append   ekleme modunda açar
+	
+2. fclose()
+	
+	dosya işaretçisini kabul eder. açık olan dosyayı kapatır.
+	
+	fclose(<file pointer>);
+	
+	fclose(ptr1);
+	
+3. fgetc()
+	Dosyanın işaret edildiği yerden bir karakter okur.
+	Dikkat edilmesi gereken dosyanın "r" modda açılması. Aksi halde hata verir.
+	
+	char ch=fgetc(<file pointer>);
+	
+	
+	char ch;
+	while((ch==fgetc(ptr))!=EOF)
+		printf("%c",ch);
+		
+	bu ifade dosya sonuna gelene kadar dosyadaki her bir karakteri teker teker okuyup yazdırmayı sağlar.
+
+4. fputc()
+	bir dosyaya bir karakter yazdırmaya yarar.
+	Dosya, w veya a olarak açılmış olmalı.
+	
+		fputc('A',ptr2);
+		
+		
+	char ch;
+	while((ch==fputc(ptr))!=EOF)
+		fputc(ch,ptr);
+		
+		
+5. fread()
+	-fgetc() nin daha kapsamlısı. fgetc() tek seferde tek işlem yaparken, fread() tek seferde 100, 500 işlem yapabilir.
+	-fread e 4 argüman veriyoruz:
+		-Bilgiyi saklayacağımız lokasyona bir işaretçi,
+		-Her bilgi parçası ne kadar büyük olacak,
+		-Kaç parça bilgi almak istiyoruz,
+		-Bu bilgileri hangi dosyadan almak istiyoruz.
+		
+	fread(<buffer>,<size>,<qty>,<file pointer>);
+	
+	int arr[10];
+	fread(arr,sizeof(int),10,ptr);
+	
+	char c;
+	fread(&c,sizeof(char),1,ptr);
+	
+
+6. fwrite()
+   -fread in yazma için olanı.
+   
+   fwrite(<buffer>,<size>,<qty>,<file pointer>);
+	
+	int arr[10];
+	fwrite(arr,sizeof(int),10,ptr);
+	
+	char c;
+	fwrite(&c,sizeof(char),1,ptr);
+	

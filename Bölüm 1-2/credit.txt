@@ -1,0 +1,59 @@
+#include<stdio.h>
+#include<cs50.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+long get_long_card(string prompt);
+int main(void)
+{
+    	int count=0,tek=0,cift=0,temp,control=0,cardTuru=0;
+        string kartTuru;
+        long card=get_long_card("NUMBER: ");
+
+	while(card!=0) {		//kart numarası 0 olana kadar
+		temp=card%10;
+        
+		count++;
+		if(count%2==0){							//çif sıradaki sayılar ise 2 ile çarp ve toplama ekle
+			if((temp*2)>9)   					//mevcut rakamın 2 katı iki haneli mi?
+			 cift+=(temp*2)/10+(temp*2)%10; 	//iki haneliyse hanelere ayırıp topla.
+           	else
+			 cift+=temp*2;
+       	} else {								// tek sıradaki sayılar ise sadece haneleri topla
+			tek+=temp;
+		}
+	card=card/10;                               //card sayısını bir basamak sola kaydır.
+	if(count==13)
+		cardTuru=card;
+    }
+                                                      
+        if(temp==4 && (count==13 || count==16) && (tek+cift)%10==0){
+            printf("VISA\n");
+            control=1;
+        }
+           
+        if(temp==5 && count==16  && (tek+cift)%10==0 && cardTuru/10<56) {
+           printf("MASTERCARD\n");
+           control=1;
+        }
+        if(temp==3 && count==15  && (tek+cift)%10==0 && (cardTuru==34 || cardTuru==37)){
+            printf("AMEX\n");
+             control=1;
+        }
+             
+      if(control==0)
+         printf("INVALID\n");
+                
+}
+
+long get_long_card(string prompt)
+{
+    long i;
+    do
+    {
+        i=get_long("%s",prompt);
+       
+      
+    } while(i<0);
+    return i;
+}

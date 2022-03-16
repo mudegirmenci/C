@@ -1,0 +1,27 @@
+#include<stdio.h>
+
+int main() 
+{
+   int hesap;
+   char isim[30];
+   double bakiye;
+   FILE *dosya; /* dosya göstericisi */
+
+   if((dosya=fopen("musteri.dat","r"))==NULL)
+	printf("Dosya açılamadı");
+   else {
+	   
+	printf("%-10s%-13s%s\n","Hesap","İsim","Bakiye");
+	fscanf(dosya,"%d%s%lf",&hesap,isim,&bakiye);
+	
+	while(!feof(dosya)) {
+           printf("%-10d%-13s%7.2f\n",hesap,isim,bakiye);
+	   fscanf(dosya,"%d%s%lf",&hesap,isim,&bakiye);
+
+	}
+
+	fclose(dosya);
+
+   }
+   return 0;
+}

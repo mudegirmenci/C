@@ -1,0 +1,28 @@
+#include<stdio.h>
+
+int main() 
+{
+   int hesap;
+   char isim[30];
+   double bakiye;
+   FILE *dosya; /* dosya göstericisi */
+
+   if((dosya=fopen("musteri.dat","w"))==NULL)
+	printf("Dosya açılamadı");
+   else {
+	printf("Hesap numarası, ismi ve bakiyeyi girin.\n");
+	printf("EOF girerek veri girişini sonlandırın.\n");
+	printf("?");
+	scanf("%d%s%lf",&hesap,isim,&bakiye);
+
+	while(!feof(stdin)) {
+	   fprintf(dosya,"%d %s %.2f\n",hesap,isim,bakiye);
+	   printf("?");
+	   scanf("%d%s%lf",&hesap,isim,&bakiye);
+	}
+
+	fclose(dosya);
+
+   }
+   return 0;
+}

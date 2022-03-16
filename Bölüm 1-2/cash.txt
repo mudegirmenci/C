@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<cs50.h>
+#include<math.h>
+
+float get_float_positive(string promt);
+int main(void)
+{
+    int quarter=25,dime=10,nickel=5,penny=1,toplam=0;
+    float cash=get_float_positive("Üstü verilecek para miktarını girin: ");
+   
+    int cents=round(cash*100);   //int'e yuvarla
+
+    while(cents>0){
+        if(cents/quarter>0) {
+            toplam+=cents/quarter;
+            cents=cents-(cents/quarter*quarter);
+         } if(cents/dime>0) {
+            toplam+=cents/dime;
+            cents=cents-(cents/dime*dime);
+         }
+          if(cents/nickel>0) {
+            toplam+=cents/nickel;
+            cents=cents-(cents/nickel*nickel);
+         }
+          if(cents/penny>0) {
+            toplam+=cents/penny;
+            cents=cents-(cents/penny*penny);
+         }
+    }
+    
+    printf("%d\n",toplam);
+}
+
+float get_float_positive(string promt){
+    float i;
+    do
+    {
+        i=get_float("%s",promt);
+    }
+    while(i<0);
+    return i;
+}

@@ -1,0 +1,41 @@
+
+Neden 16 lık taban?
+  16, 2 nin tam kuvveti olduğu için bu tabanda 0'dan f'ye kadar her 
+  rakam iki tabanında 4 rakamlı bir sayıya, 4 bit'e karşılık geliyor.
+  Böylece ikilik tabandaki sayıları daha yalın bir biçimde 16 sistemde
+  ifade edebiliyoruz.
+  
+  Decimal		Binary			Hexadecimal
+  -------------------------------------------
+     0			0000				0
+	 1			0001				1
+	 2			0010				2
+	 3			0011				3
+	 4			0100				4
+	 ...........
+	 14			1110				e
+	 15			1111				f
+	 ---------------------------------
+	 
+	 görüleceği üzere 0 bütün tabanlarda aynı. Peki 0 ı hex tabanında nasıl gösterebiliriz?
+	 Onaltılık tabanda sayıları gösterirken onları onluk tabandaki sayılardan ayırmak için genelde önlerine 0x getirilir.
+	 O halde on altılık tabandaki 0 da 0x0 olarak gösterilir.
+	 
+	 397 -> üç yüz doksan yedi dir (onluk)
+	 0x397 ise onaltılık tabanda üç dokuz ve yedidir.
+	 onluk sistem karşılığı ise
+	 
+	 0x   3        9       7
+	     16^2    16^1    16^0
+	 
+	İKİLİK TABANDAN 16 LIK TABANA 
+
+	öncelikle ikili tabandaki sayılar 4 lü gruplara ayrılır. Her 4 lü grup 16 lık tabanda bir sayıya karşılık gelir.
+	
+	01000110101000101011100100111101
+	0100 0110 1010 0010 1011 1001 0011 1101
+	 4    6     a    2    b    9    3    d
+	 
+	 0x46a2b93d
+	 
+	

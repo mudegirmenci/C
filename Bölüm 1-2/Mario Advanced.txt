@@ -1,0 +1,66 @@
+1. height değişkenini al
+2. değişkenin 1-8 arasında olduğunu doğrula.
+3. satir,i,j değişkeni tanmla
+4. for(satir=height;satir>1;satir--){   //kare yazdıracak döngü
+      for(i=height-1;i>1;i--){   //boşluk yazdıracak döngü
+	     prinf(" ");
+		 j++;					//kare sayısını tutacak değişken
+	  }
+	  
+	 while(j>1){
+	   printf("#");
+	   j--;
+	 }
+	 printf("\n");
+	 height--;
+	} 								//birinci satır yazma bitti
+		 
+		 
+
+// Abstraction and scope
+
+#include <cs50.h>
+#include <stdio.h>
+
+int get_positive_int(string prompt);
+
+int main(void)
+{
+    int height = get_positive_int("Positive integer: ");
+    int satir,i,j,kareSayisi=1;
+
+ for(satir=height;satir>=1;satir--){   //kare yazdıracak döngü
+      for(i=satir;i>1;i--)        //boşluk yazdıracak döngü
+	     printf(" ");
+						       
+        for(j=kareSayisi;j>=1;j--)  //birinci pramid
+	        printf("#");
+
+         printf(" ");
+
+        for(j=kareSayisi;j>=1;j--)   //ikinci pramid
+	        printf("#");
+       
+       kareSayisi++;
+	   printf("\n");
+        
+	   
+        
+	}							//birinci satır yazma bitti
+		
+
+}
+
+// Prompt user for positive integer
+int get_positive_int(string prompt)
+{
+    int n;
+    do
+    {
+        n = get_int("%s", prompt);
+    }
+    while (n < 1 || n>8);
+    return n;
+}
+
+	     

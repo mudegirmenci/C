@@ -1,0 +1,9 @@
+
+
+help50 make caesar: derleme hatalarını bulur
+style50 caesar.c:stil hatalarını bulur
+debug50 ./hello.c
+
+ide.cs50.io
+	 
+	 
